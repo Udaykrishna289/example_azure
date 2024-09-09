@@ -20,4 +20,5 @@ steps:
       output_location: ''
       skip_deploy_on_missing_secrets: true
     env:
-      azure_static_web_api_token: 9201988f55b65f62c54a9e70726cea92d332572ce6b32c12ce9cb3068e7bb7ee5-e9f92609-d2bb-4d72-a4f9-7f0dc49d498e000293975
+      azure_static_web_api_token: $(deploy_token)
+
