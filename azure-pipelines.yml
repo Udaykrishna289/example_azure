@@ -10,8 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)'
-    includeRootFolder: false
-- task: PublishBuildArtifacts@1
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: '/'
+      api_location: 'api'
+      output_location: ''
+    env:
+      azure_static_web_api_token: $(deployment_token)
+
