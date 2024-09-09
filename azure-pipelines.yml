@@ -12,11 +12,12 @@ pool:
 steps:
   - checkout: self
     submodules: true
+
   - task: AzureStaticWebApp@0
     inputs:
       app_location: '/'
       api_location: 'api'
       output_location: ''
+      skip_deploy_on_missing_secrets: true
     env:
-      azure_static_web_api_token: $(deployment_token)
-
+      azure_static_web_api_token: $(deploy_token)
